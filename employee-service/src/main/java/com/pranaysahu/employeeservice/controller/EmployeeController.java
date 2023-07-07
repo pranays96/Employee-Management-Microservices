@@ -1,5 +1,6 @@
 package com.pranaysahu.employeeservice.controller;
 
+import com.pranaysahu.employeeservice.dto.APIResponseDto;
 import com.pranaysahu.employeeservice.dto.EmployeeDto;
 import com.pranaysahu.employeeservice.service.EmployeeService;
 import lombok.AllArgsConstructor;
@@ -24,8 +25,9 @@ public class EmployeeController {
 
     //Build get Employee Rest API
     @GetMapping("{id}")
-    public ResponseEntity<EmployeeDto> getEmployee(@PathVariable("id") Long employeeId){
-        EmployeeDto employeeDto = employeeService.getEmployeeById(employeeId);
-        return new ResponseEntity<>(employeeDto,HttpStatus.OK);
+    public ResponseEntity<APIResponseDto> getEmployee(@PathVariable("id") Long employeeId){
+        APIResponseDto apiResponseDto = employeeService.getEmployeeById(employeeId);
+        return new ResponseEntity<>(apiResponseDto ,HttpStatus.OK);
     }
+
 }
